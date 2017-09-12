@@ -34,11 +34,12 @@ SELECT * FROM cargos limit 3, 5; # consulta equivalente, sem a palavra offset
 
 Considerando um sistema que tem vários diversos itens, e mostra 4 itens por página:
 
-| pagina | sql | itens |
-| 1 | limit 4 offset 0 | 1, 2, 3 e 4 |
-| 2 | limit 4 offset 4 | 5, 6, 7 e 8 |
-| 3 | limit 4 offset 8 | 9, 10, 11 e 12 |
-| 4 | limit 4 offset 12 | 13, 14, 15 e 16 |
+| pagina | sql               | itens           |
+| ------ | ----------------- | --------------- |
+| 1      | limit 4 offset 0  | 1, 2, 3 e 4     |
+| 2      | limit 4 offset 4  | 5, 6, 7 e 8     |
+| 3      | limit 4 offset 8  | 9, 10, 11 e 12  |
+| 4      | limit 4 offset 12 | 13, 14, 15 e 16 |
 
 pagina n = limit 4 offset 4 * (n-1)
 
