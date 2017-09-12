@@ -32,7 +32,7 @@ SELECT * FROM cargos limit 5 offset 3;
 SELECT * FROM cargos limit 3, 5; # consulta equivalente, sem a palavra offset
 ```
 
-Considerando um sistema que tem vários diversos itens, e mostra 4 itens por página:
+Considerando um sistema que tem diversos itens e mostra 4 itens por página:
 
 | pagina   | sql               | itens           |
 | :------: | :-----------------: | :---------------: |
