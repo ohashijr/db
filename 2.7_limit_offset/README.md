@@ -43,7 +43,7 @@ Considerando um sistema que tem diversos itens e mostra 4 itens por página:
 
 pagina n = limit 4 offset 4 * (n-1)
 
-obs: como o offset do sql da pagina 1 é igual a zero, este poderia ser ignorado ficando apenas "limit 4".
+obs: como o offset da pagina 1 é igual a zero, este poderia ser ignorado ficando apenas: "limit 4".
 
 # LIMIT no DELETE
 É possível restringir a quantidade de um delete com o limit.
