@@ -51,6 +51,12 @@ explain SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;
 | rows: | 560 | 80178 |
 | extra: | Using where | Using where; Using filesort |
 
+type: ALL - leu toda a tabela
+key: NULL - nenhum index foi aplicado
+rows: quantidade estimada de linhas lida
+extra: etapa posterior ao filtro que precisa ser aplicada
+
+https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
 
 ## Mantendo o index_a e adicionando index na coluna "b"
 
@@ -60,11 +66,11 @@ ALTER TABLE teste ADD INDEX index_b (b);
 Vamos testar novamente a performance das consultas.
 
 ```sql
-SELECT * FROM teste WHERE a = 20 AND b = 16 limit 80;  --
-SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;  --
+SELECT * FROM teste WHERE a = 20 AND b = 16 limit 80;  -- 0.001
+SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;  -- 0.032
 ```
 
-Nesta nova estratégia mantivemos a performance do teste anterior com a 1ª consulta o que é muito bom. E melhoramos significativemente a performance na 2ª consulta, com um tempo de respostas de 0.005 sec.
+Nesta nova estratégia melhorando ainda mais o tempo de resposta da consulta 1. E houve uma pequena melhora no tempo da consulta 2.
 
 ## Remover o index "index_a", permanecendo com o index_b
 
@@ -72,13 +78,12 @@ Nesta nova estratégia mantivemos a performance do teste anterior com a 1ª cons
 DROP INDEX index_a on teste;
 ```
 
-Apenas com index_b a performance foi similar ao teste com os dois indexes index_a e index_b. A variação na primeira consulta foi muito pequena para ser considerada.
+Apenas com index_b a performance foi um pouco pior para a consulta 1, e melhorou significativamente para a consulta 2.
 
 ```sql
-SELECT * FROM teste WHERE a = 20 AND b = 16 limit 80;  --
-SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;  --
+SELECT * FROM teste WHERE a = 20 AND b = 16 limit 80;  -- 0.005
+SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;  -- 0.010
 ```
-
 
 # Testando index duplo, remover o index_b e adicionar o index_a_b
 ```sql
@@ -86,11 +91,11 @@ DROP INDEX index_b on teste;
 ALTER TABLE teste ADD INDEX index_a_b (a,b);
 ```
 
-Com a index duplo index_a_b obtivemos a melhor performance até agora para a 1ª consulta e uma piora significativa na 2ª consulta, que passou de 0.005 para 0.038 sec.
+Com a index duplo index_a_b obtivemos a melhor performance até agora para a 1ª consulta e uma piora significativa na 2ª consulta.
 
 ```sql
-SELECT * FROM teste WHERE a = 20 AND b = 16 limit 80;  --
-SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;  --
+SELECT * FROM teste WHERE a = 20 AND b = 16 limit 80;  -- 0.001
+SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;  -- 0.030
 ```
 
 # Invertendo o index duplo, remover o index_a_b e adicionar o index_b_a
@@ -99,16 +104,16 @@ DROP INDEX index_a_b on teste;
 ALTER TABLE teste ADD INDEX index_b_a (b,a);
 ```
 
-Obtivemos a melhor performance até o momento para as duas consultas, ambas com o tempo de 0.001 sec. O que é um ganho estupendo em comparado ao teste sem index.
+Obtivemos a melhor performance até o momento para as duas consultas, a consulta 1 com 0.001 e a consulta 2 com 0.003. O que é um ganho estupendo em comparado ao teste sem index.
 
 ```sql
-SELECT * FROM teste WHERE a = 20 AND b = 16 limit 80;  --
-SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;  --
+SELECT * FROM teste WHERE a = 20 AND b = 16 limit 80;  -- 0.001
+SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;  -- 0.003
 ```
 
 # Indexing is not an exact science
-- Explain
--
+- Explain pode dar uma luz
+https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
 
 # BAD INDEX
 - Slows down writes
