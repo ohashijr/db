@@ -34,16 +34,16 @@ SELECT * FROM cargos limit 3, 5; # consulta equivalente, sem a palavra offset
 
 Considerando um sistema que tem diversos itens e mostra 4 itens por página:
 
-| pagina   | sql               | itens           |
+| pagina   | sql                 | itens             |
 | :------: | :-----------------: | :---------------: |
-| 1      | limit 4 offset 0  | 1, 2, 3 e 4     |
-| 2      | limit 4 offset 4  | 5, 6, 7 e 8     |
-| 3      | limit 4 offset 8  | 9, 10, 11 e 12  |
-| 4      | limit 4 offset 12 | 13, 14, 15 e 16 |
+| 1        | limit 4 offset 0    | 1, 2, 3 e 4       |
+| 2        | limit 4 offset 4    | 5, 6, 7 e 8       |
+| 3        | limit 4 offset 8    | 9, 10, 11 e 12    |
+| 4        | limit 4 offset 12   | 13, 14, 15 e 16   |
 
 pagina n = limit 4 offset 4 * (n-1)
 
-obs: o sql da pagina 1, poderia ignorar o offset ficando apenas "limit 4".
+obs: como o offset do sql da pagina 1 é igual a zero, este poderia ser ignorado ficando apenas "limit 4".
 
 # LIMIT no DELETE
 É possível restringir a quantidade de um delete com o limit.
