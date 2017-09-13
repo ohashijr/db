@@ -1,7 +1,7 @@
-# DATASET
+# Dataset
 Essa aula é baseada no schema definido no arquivo [script.sql](script.sql)
 
-# LIMIT
+# Limit
 Função principal é restringir a quantidade de linhas de uma consulta.
 Considerando a performance da aplicação/banco, não é uma boa prática realizar uma consulta que retorna uma grande quantidade de linhas do banco de dados e apenas mostrar parte dessas linhas. É mais otimizado buscar no banco apenas a informação que será apresentada.
 
@@ -20,7 +20,7 @@ ex: retornando apenas as últimas 10 linhas
 SELECT * FROM cargos order by id desc limit 10;
 ```
 
-# PAGINAÇÃO
+# Paginação
 Uma empresa de e-commerce não disponibiliza em uma única página todos os itens a venda.
 A prática mais comum é limitar a quantidade de itens por página, por ex: 20 itens. Para o usuário
 visualizar os próximos 20 itens é necessário uma ação como, navegar para outra página.
@@ -45,7 +45,7 @@ pagina n = limit 4 offset 4 * (n-1)
 
 obs: como o offset da pagina 1 é igual a zero, este poderia ser ignorado ficando apenas: "limit 4".
 
-# LIMIT no DELETE
+# Limit no delete
 É possível restringir a quantidade de um delete com o limit.
 "If the DELETE statement includes an ORDER BY clause, rows are deleted in the order specified by the clause. This is useful primarily in conjunction with LIMIT."
 https://dev.mysql.com/doc/refman/5.6/en/delete.html
@@ -54,7 +54,7 @@ ex: deleta o funcionário com o maior salário.
 ```sql
 DELETE FROM funcionarios ORDER BY salario DESC LIMIT 1;
 ```
-# LIMIT no UPDATE
+# Limit no update
 É possível restringir a quantidade de linhas afetadas num update.
 
 ex: atualiza o salário de quem ganha mais para o valor 1000.
