@@ -112,12 +112,13 @@ SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;  -- 0.003
 ```
 
 # Indexing is not an exact science
-- Explain pode dar uma luz
+- Explain pode dar uma luz;
 https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
-- É necessário testar várias opções
+- É necessário testar várias opções;
+- Index tornam a escrit mais lenta.
 
 # BAD INDEX
-- Slows down writes
-- Duplicate indexes: always bad
-- Redondant indexes: generally bad
-- Unused indexes: always bad
+- Slows down writes;
+- Duplicate indexes: always bad;
+- Redondant indexes: generally bad;
+- Unused indexes: always bad.
