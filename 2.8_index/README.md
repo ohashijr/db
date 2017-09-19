@@ -115,7 +115,7 @@ SELECT * FROM teste WHERE b > 95 ORDER by b desc limit 5000;  -- 0.003
 - Explain pode dar uma luz;
 https://dev.mysql.com/doc/refman/5.7/en/explain-output.html
 - É necessário testar várias opções;
-- Index tornam a escrit mais lenta.
+- Index tornam a escrita mais lenta.
 
 # BAD INDEX
 - Slows down writes;
