@@ -83,3 +83,14 @@ Em algumas situações específicas quando a tabela intermediária possui atribu
 # Obs: diferença entre linha continua e pontilhada
 
 A linha contínua é utilizada quando uma chave estrangeira é chave primária na outra tabela
+
+# Exercício
+
+- Um Aluno (id, matricula, nome) está inscrito em um curso (id, sigla, nome)
+- Um curso tem diversos alunos
+- Um curso tem varias disciplinas (id, nome, ch)
+- Disciplina pertence apenas a um curso
+- Um aluno faz varias disciplinas
+- Uma disciplina tem varios alunos associados
+- Disciplina tem apenas um professor (id, cpf, nome)
+- Professor pode ministrar varias disciplinas
