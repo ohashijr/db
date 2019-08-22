@@ -32,7 +32,7 @@ Ex: na tabela funcionários a chave primária é a coluna *id*, uma chave artifi
 
 Entidades/tabelas não ficam isoladas, é necessário que ocorra ligação entre as mesmas. Ex: é necessário saber quais as disciplinas de determinado aluno, ou os projetos de determinado funcionário. O relacionamento entre tabelas é a maneira de ligar as informações dessas tabelas. O relacionamento entre duas tabelas/entidades acontece quando existe uma coluna em comum entre as duas. 
 
-Existem basicamente 3 tipos de relacionamentos, 1:1, 1:N e N:N
+Existem basicamente 3 tipos de relacionamentos: 1:1, 1:N e N:N
 
 # 1:1
 
