@@ -11,11 +11,11 @@ Aquele em que os objetos, suas características e relacionamentos têm a represe
 É a representação dos objetos feita sob o foco do nível físico de implementação das ocorrências, ou instâncias das entidades e seus relacionamentos. O conhecimento do modo físico de implementação das estruturas de dados é ponto básico para o domínio desse tipo de modelo. 
 
 # Diagrama Entidade Relacionamento
-![DER](der2.jpg)
+![DER](der.png)
 
 o que representa cada simbolo:
 
-![DER](der.png)
+![DER](der2.png)
 
 # Diagrama Entidade Relacionamento Estendido
 
