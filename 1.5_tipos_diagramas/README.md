@@ -36,8 +36,6 @@ O MySQL Workbench é um programa de design de diagrama EER, que é a representa�
 # Referências
 - https://cacoo.com/blog/er-diagrams-vs-eer-diagrams-whats-the-difference/
 
-- https://cacoo.com/blog/er-diagrams-vs-eer-diagrams-whats-the-difference/
-
 - https://www.lucidchart.com/pages/pt/diagrama-entidade-relacionamento-estendido
 
 - https://www.calebcurry.com/introduction-to-mysql-workbench/
