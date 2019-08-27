@@ -14,6 +14,7 @@ Aquele em que os objetos, suas características e relacionamentos têm a represe
 ![DER](der2.jpg)
 
 o que representa cada simbolo:
+
 ![DER](der.png)
 
 # Diagrama Entidade Relacionamento Estendido
@@ -21,6 +22,7 @@ o que representa cada simbolo:
 ![DER](dee.jpg)
 
 especialização:
+
 ![DER](der_especializacao.png)
 
 # Enhanced Entity Relationship - EER 
