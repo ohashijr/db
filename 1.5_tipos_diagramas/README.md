@@ -10,14 +10,14 @@ Aquele em que os objetos, suas características e relacionamentos têm a represe
 ## Modelo Físico de Dados
 É a representação dos objetos feita sob o foco do nível físico de implementação das ocorrências, ou instâncias das entidades e seus relacionamentos. O conhecimento do modo físico de implementação das estruturas de dados é ponto básico para o domínio desse tipo de modelo. 
 
-# Diagrama Entidade Relacionamento
+# Diagrama Entidade Relacionamento (conceitual)
 ![DER](der.png)
 
 o que representa cada simbolo:
 
 ![DER](der2.png)
 
-# Diagrama Entidade Relacionamento Estendido
+# Diagrama Entidade Relacionamento Estendido (conceitual)
 
 ![DER](dee.jpg)
 
@@ -25,13 +25,26 @@ especialização:
 
 ![DER](der_especializacao.png)
 
-# Enhanced Entity Relationship - EER 
+# Enhanced Entity Relationship - EER (lógico)
 
 O MySQL Workbench é um programa de design de diagrama EER, que é a representação visual da estrutura do banco de dados. Que geralmente ignora os valores das linhas, e foca nas tabelas colunas e relacionamentos.
 
 É um diagrama físico, que representa as tabelas reais do banco em vez de simbolos que podem gerar uma ou mais tabelas. Cada entidade reflete a uma tabela real no banco e cada campo a uma coluna.
 
 ![DER](eer.png)
+
+# SQL (físico)
+
+```sql
+create table alunos(
+	id integer primary key,
+	matricula varchar(7),
+	nome varchar(45),
+	cursos_id int,
+    FOREIGN KEY(cursos_id) REFERENCES cursos(id)
+);	
+```
+
 
 # Referências
 - https://cacoo.com/blog/er-diagrams-vs-eer-diagrams-whats-the-difference/
